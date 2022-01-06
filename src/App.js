@@ -3,7 +3,7 @@ import {
 	Button,
 	SafeAreaView,
 	StyleSheet,
-	Text,
+	Text, TouchableWithoutFeedback,
 	View,
 } from "react-native";
 import * as DocumentPicker from "react-native-document-picker";
@@ -27,12 +27,41 @@ class App extends Component {
 						<Text style={styles.title}>
 							Upload file demo by Toản Nguyễn.
 						</Text>
-						<View style={styles.mt_10}>
-							<Button
-								style={styles.button}
-								onPress={bindEventButton}
-								title="Select file."
-							/>
+						<View style={[ styles.mt_10, {
+							display: "flex",
+							justifyContent: "center",
+							alignItems: "center",
+							textAlign: "center"
+						} ]}>
+
+							<TouchableWithoutFeedback onPress={bindEventButton}>
+								<View style={[ styles.mt_10, styles.button, {
+									display: "flex",
+									justifyContent: "center",
+									alignItems: "center",
+									textAlign: "center"
+								} ]}>
+									<Text style={[ styles.buttonText ]}>Select file.</Text>
+								</View>
+							</TouchableWithoutFeedback>
+
+							<View style={[ styles.mt_10, styles.button, {
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+								textAlign: "center"
+							} ]}>
+								<Text style={[ styles.buttonText ]}>Select photo.</Text>
+							</View>
+
+							<View style={[ styles.mt_10, styles.button, {
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center",
+								textAlign: "center"
+							} ]}>
+								<Text style={[ styles.buttonText ]}>Camera.</Text>
+							</View>
 						</View>
 					</View>
 				</SafeAreaView>
@@ -109,13 +138,18 @@ const styles = StyleSheet.create({
 	},
 
 	button: {
-		backgroundColor: '#0050a0',
-		padding: 24,
-
-		color: '#fff',
-
+		backgroundColor: '#0759b8',
+		padding: 15,
+		display: "flex",
+		width: 200,
 		borderRadius: 5,
 	},
+
+	buttonText: {
+		fontSize: 16,
+		color: '#fff',
+		fontWeight: "bold",
+	}
 });
 
 export default App;
